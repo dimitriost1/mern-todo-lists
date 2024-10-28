@@ -5,7 +5,7 @@
  "scripts": {
   "server": "npx nodemon server.js --prefix backend",
   "client": "npm run dev --prefix frontend",
-  "start": "npm run server & npm run client"
+  "start": "npm run server"
 },
   "keywords": [],
   "author": "",
