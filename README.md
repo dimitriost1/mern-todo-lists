@@ -1,0 +1,1 @@
+This is a mern stack app. A user can login/registen initially and then can see the set of all his todo lists. Then he can navigate in each todo list where can add items , delete itemd and mark items as done.
