@@ -25,6 +25,13 @@ const Header = () => {
       }}
     >
       <span>Welcome, {username}!</span>
+      <button
+        onClick={() => {
+          navigate("/todos");
+        }}
+      >
+        Go to your lists
+      </button>
       <button onClick={handleLogout}>Logout</button>
     </header>
   );
