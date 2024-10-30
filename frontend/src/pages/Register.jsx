@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import API_URL from "../config";
 
 const Register = () => {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -17,10 +18,7 @@ const Register = () => {
     try {
       console.log("1. Starting registration attempt");
       setError("");
-      const response = await axios.post(
-        "http://localhost:3000/api/auth/register",
-        formData
-      );
+      const response = await axios.post(`${API_URL}/auth/register`, formData);
 
       console.log("2. Response received:", response.status);
 

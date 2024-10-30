@@ -16,18 +16,13 @@ const PORT = process.env.PORT || 5000;
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'dist')))
+app.use(express.static(path.join(__dirname, 'dist')));
 
-// API Routes
+// API Routes 
 app.use('/api/auth', authRoutes);
 app.use('/api/todos', todoRoutes);
 
-// Handle frontend routes
-app.get(['/register', '/login'], (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
-});
-
-// Catch-all route for any other frontend routes
+// static routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'));
 });

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
+import API_URL from "../config";
 
 const TodoPage = () => {
   const [todoLists, setTodoLists] = useState([]);
@@ -9,7 +10,7 @@ const TodoPage = () => {
 
   const fetchTodoLists = async () => {
     const token = localStorage.getItem("token");
-    const response = await axios.get("http://localhost:3000/api/todos", {
+    const response = await axios.get(`${API_URL}/todos`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -21,7 +22,7 @@ const TodoPage = () => {
     e.preventDefault();
     const token = localStorage.getItem("token");
     await axios.post(
-      "http://localhost:3000/api/todos",
+      `${API_URL}/todos`,
       { title },
       {
         headers: {
