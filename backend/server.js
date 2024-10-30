@@ -18,16 +18,20 @@ app.use(cors());
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'dist')))
 
-// Routes
-app.use('/api/auth', authRoutes); // Authentication routes
-app.use('/api/todos', todoRoutes); // Todo routes
+// API Routes
+app.use('/api/auth', authRoutes);
+app.use('/api/todos', todoRoutes);
 
-// Test route
-// app.get('/', (req, res) => {
-//   res.send('Server is running');
-// });
+// Handle frontend routes
+app.get(['/register', '/login'], (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
 
-// Start the server
+// Catch-all route for any other frontend routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist', 'index.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
